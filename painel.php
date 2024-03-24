@@ -35,15 +35,15 @@ $result = $pdo->query($sql);
                 </tr>
             </thead>
             <tbody>
-                <?php while ($dados = $result->fetch(PDO::FETCH_ASSOC)){?>
+                <?php foreach ($result as $dados){?>
                         <tr>
                             <td><?php echo $dados['id'] ?></td>
                             <td><?php echo $dados['nome'] ?></td>
                             <td><?php echo $dados['estado'] ?></td>
                             <td><?php echo $dados['cidade'] ?></td>
                             <td>
-                                <a href="" class="btn btn-primary">Editar</a>
-                                <a href=""class="btn btn-danger">Remover</a>
+                                <a href="editar.php?id=<?php echo $dados['id']; ?>" class="btn btn-primary">Editar</a>
+                                <a href="delete.php?id=<?php echo $dados['id']; ?>" class="btn btn-danger">Delete</a>
                             </td>
                         </tr> 
                 <?php }?>

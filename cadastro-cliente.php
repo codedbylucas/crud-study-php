@@ -26,7 +26,7 @@ if(isset($_POST['nome']) || isset($_POST['estado']) || isset($_POST['cidade'])){
         $sql = $pdo->prepare ("INSERT INTO `clientes`(`nome`, `estado`, `cidade`) VALUES ('$nome','$estado','$cidade')");
         $sql->execute();
         
-        if ($sql->rowCount() > 0) {
+        if ($sql->execute()) {
             echo "<script>alert('Cadastrado com sucesso!'); window.location.href = 'painel.php';</script>";
           } else {
             echo "Erro ao cadastrar cliente.";
